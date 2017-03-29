@@ -23,4 +23,21 @@ class Player
       puts "Level up!"
     end
   end
+
+  def do_battle
+    @health_points -= 1
+
+    if @health_points == 0
+      @health_points += 10
+      @lives -= 1
+      puts "You have lost a life! You have #{@lives} remaining"
+    end
+
+    if @lives == 0
+      puts "you lose! Restarting..."
+      @gold_coins = 0
+      @health_points = 10
+      @lives = 5
+    end
+  end
 end
